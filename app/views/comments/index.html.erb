@@ -1,0 +1,9 @@
+<main>
+	<div id='comments-list-container'>
+		<ul id="comments-list">
+			<% @comments.each do |comment| %>
+			<% render 'comment' , com: comment %>
+			<% end %>
+		</ul>
+	</div>
+</main>

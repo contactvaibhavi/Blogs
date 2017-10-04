@@ -1,0 +1,118 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new-post-form-container{
+	
+    width: 75%;
+    min-width: 360px;
+    text-align: center;
+    margin: 0 auto;
+
+    label{
+    	display: block;
+    }
+
+    textarea, input[type="submit"]{
+    	display: block;
+    	margin: 0 auto;
+    }
+
+    textarea{
+    	width: 85%;
+    	min-width: 360px;
+    }
+
+    input[type="submit"]{
+	    margin: 10px auto;
+	    border: none;
+	    color: white;
+	    background-color: #5b5bfa;
+    }
+}
+
+#posts-list-container{
+
+	width: 75%;
+	min-width: 360px;
+	margin: 0 auto;
+	
+	#posts-list{
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		.post{
+			border-bottom: 1px solid grey;
+			.post-content{
+				display: flex;
+				justify-content: space-between;
+				font-size: 0.9rem;
+
+				.text{
+					width: 95%;
+				}
+
+				.post-destroy-link a{
+					text-decoration: none;
+					color: red;
+				}
+			}
+
+			.post-comments-container{
+				width: 50%;
+			    margin: 10px auto;
+			    min-width: 300px;
+
+			    form{
+			    	display: flex;
+
+			    	input, textarea{
+			    		width: 50%;
+		    		}
+			    }
+
+			    .comments-list{
+			    	list-style: none;
+			    	padding-top: 10px;
+			    	padding-left: 0;
+		    	    background-color: rgba(255, 160, 122, 0.35);
+    				padding: 5px;
+			    	li{
+			    		border: 1px dashed grey;
+			    		margin: 3px;
+    					padding: 3px;
+    					display: flex;
+    					justify-content: space-between;
+			    		p{
+			    			margin: 0;
+			    		}
+
+			    		a{
+
+			    			text-decoration: none;
+			    			color: red;
+			    			font-size: 10px;
+			    		}
+			    	}
+
+			    }
+			}
+		}
+
+	}
+}
+
+.author-details{
+	font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
