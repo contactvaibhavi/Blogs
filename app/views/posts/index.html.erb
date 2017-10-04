@@ -9,11 +9,11 @@
 		<% end %>
 	</div>
 	<% end %>
-<p>hvhfjjujj</p>
+
 	<div id="posts-list-container">
 		<ul id="posts-list">
-			<% @posts.each, remote: true do |post| %>
-				<%= render 'post', p: post %>
+			<% @posts.each do |post| %>
+				<%= render 'post' , p: post %>
 			<% end %>
 		</ul>
 	</div>

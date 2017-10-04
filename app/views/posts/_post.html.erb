@@ -8,28 +8,42 @@
 				<%= p.user.email%> at <%= p.created_at %>
 			</p>
 		</div>
-		
+
+		<p>
+			<%= link_to "Like" , like_path(p.id), remote: true, method: :post %>
+		</p>
+		<!-- 
+            <form class="new_like" id="new_like" action="/likes" accept-charset="UTF-8" data-remote="true" method="post">
+	        <input name="utf8" type="hidden" value="✓">
+		    <input value="<%= p.id %>" type="hidden" name="like[likeable_id]" id="like_likeable_id">
+		    <input value="post" type="hidden" name="like[likeable_type]" id="like_likeable_id">
+			<input type="submit" name="commit" value="Like"> 
+            </form> -->
+
+<!--          <a href="/posts/<%= p.id %>" data-remote="true" rel="nofollow" data-method="delete" ><img src="/assets/thumbs-up.png" width="50" height="50" ></a>
+ -->
 		<p class="post-destroy-link">
 			<%= link_to "X", post_path(p.id), remote: true, method: :delete %>
 		</p>
 	</div>
 	<div class="post-comments-container">
-		<%= form_for @comment, remote: true do |f| %>
+			<%= form_for @comment, remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
 			<%= f.submit %>
 		<% end %>
 
-		<p>from post partial</p>
-		<ul id="comments-list">
+		<ul id="comments-list-<%= p.id %>">
 			<% p.comments.each do |com| %>
-			<li>
+			<li id= "comment-<%= com.id %>" >
 				<div>
 					<p>
 					<%= com.content %>
 					</p>
-					<p class="author-details">hihihuhii<%= com.user.email%> at <%= com.created_at %>
+					<p class="author-details"><%= com.user.email%> at <%= com.created_at %>
 					</p>
+					<button class="button" id="like_comment-<%= com.id%>"  >Like</button>
+					
 				</div>
 				
 				<p class="comment-destroy-link">

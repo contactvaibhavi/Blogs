@@ -1,2 +1,3 @@
-//$('#comments-list').prepend("<%= escape_javascript render 'comment', com: @comment %>");
-//console.log("HERE");
+$('#comments-list-<%= @post.id %>').prepend("<%= escape_javascript render 'comment', com: @comment %>");
+
+console.log("HERE");

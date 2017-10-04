@@ -1,28 +1,29 @@
-class CommentsController < ApplicationController
+class LikesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
   before_action :set_comment, only: [:destroy]
   before_action :authorize_user, only: [:destroy]
+def create
+end
 
+def destroy
+  end
   
-  def create
-  	@comment = Comment.new(comment_params)
+  def toggle
+  	@like = Like.new(like_params)
   	@comment.user = current_user
     @post = @comment.post
   	@comment.save
-  end
 
-  def destroy
-  	@post = @comment.post
   	@comment.destroy
   end
 
   private
 
-  def comment_params
-  	params.require(:comment).permit(:post_id, :content)
+  def like_params
+  	params.require(:like).permit(:likeable_id, :likeable_type)
   end
 
-  def set_comment
+  def set_like
   	@comment = Comment.find(params[:id])
   end
 

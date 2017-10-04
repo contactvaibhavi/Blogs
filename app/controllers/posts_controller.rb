@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
   	@post = Post.new
   	@comment = Comment.new
+    @like= Like.new
   	@posts = Post.all.reverse()
   end
 
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
   	@post.user = current_user
   	@post.save
+    @like = Like.new
   	@comment = Comment.new
   end
 
