@@ -10,7 +10,7 @@
 		</div>
 
 		<p>
-			<%= link_to "Like" , like_path(p.id), remote: true, method: :post %>
+			<%= link_to "Like" , likes_id_path(p.id), remote: true, method: :post %>
 		</p>
 		<!-- 
             <form class="new_like" id="new_like" action="/likes" accept-charset="UTF-8" data-remote="true" method="post">
